@@ -1,0 +1,58 @@
+<div class="container">
+  <button (click)="logout()" class="sign-out">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9" /></svg>
+    <span>Sair</span>
+  </button>
+  <div class="card">
+    <header>
+      <div class="image-area">
+        <img src="../../../assets/hbsislogo2015.png">
+      </div>
+    </header>
+    <div class="content-card">
+      <form [formGroup]="exportFormRecebimento" (ngSubmit)="exportRecebimento()" class="export-recebimento">
+        <h3>Exportar as MDFes</h3>
+        <div class="message-error">
+          <span>{{errorMessage}}</span>
+        </div>
+        <div class="first-area">
+          <div class="input-type">
+            <span class="subtitle">Tipo da busca</span>
+            <select (change)="setValueFromSearchType($event)">
+              <option *ngFor="let type of searchTypes">{{type}}</option>
+            </select>
+          </div>
+          <div (click)="limparRecebimentoForm()" class="clear-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+          </div>
+        </div>
+        <div class="datas-recebimento">
+          <div class="input-area">
+            <span class="subtitle">Data Inicial</span>
+            <input type="date" formControlName="dataInicial" placeholder="Data inicial" required>
+          </div>
+          <div class="input-area">
+            <span class="subtitle">Data Final</span>
+            <input type="date" formControlName="dataFinal" placeholder="Data final" required>
+          </div>
+        </div>
+        <button type="submit" class="button-export">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="#264a98" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M21.2 15c.7-1.2 1-2.5.7-3.9-.6-2-2.4-3.5-4.4-3.5h-1.2c-.7-3-3.2-5.2-6.2-5.6-3-.3-5.9 1.3-7.3 4-1.2 2.5-1 6.5.5 8.8M12 19.8V12M16 17l-4 4-4-4" />
+          </svg>
+          <span>Exportar</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

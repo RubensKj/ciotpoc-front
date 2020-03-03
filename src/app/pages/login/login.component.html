@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="profileForm" (ngSubmit)="login()">
+    <header>
+      <div class="image-area">
+        <img src="../../../assets/hbsislogo2015.png">
+      </div>
+    </header>
+    <div class="content-form">
+      <div class="error-area">
+        <p>{{errorMessage}}</p>
+      </div>
+      <div class="input-area">
+        <input type="email" name="email" formControlName="email" placeholder="E-mail" required>
+      </div>
+      <div class="input-area">
+        <input type="password" name="password" formControlName="password" placeholder="Password" required>
+      </div>
+      <input type="submit" class="button" value="Entrar">
+    </div>
+  </form>
+</div>

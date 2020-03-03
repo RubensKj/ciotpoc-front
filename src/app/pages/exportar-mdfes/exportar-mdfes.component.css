@@ -1,0 +1,200 @@
+.sign-out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background: #264a98;
+  padding: 5px 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sign-out svg {
+  margin-right: 5px;
+}
+
+.sign-out:hover {
+  background: #2950a5;
+  transition: 0.2s background;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.container .card {
+  border: 1px solid #ecebed;
+  border-radius: 4px;
+  max-width: 550px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container .card header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ecebed;
+  padding: 5px 15px;
+  height: 115px;
+}
+
+.container .card header .image-area {
+  max-width: 180px;
+  max-height: 180px;
+  width: 100%;
+  padding: 5px 15px;
+}
+
+.container .card header .image-area img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .card .content-card {
+  width: 100%;
+  padding: 5px 15px;
+}
+
+.container .card .content-card .clear-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #264a98;
+  border-radius: 4px;
+  padding: 8px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.container .card .content-card .export-recebimento {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.container .card .content-card .export-recebimento h3 {
+  color: #264a98;
+}
+
+.container .card .content-card .export-recebimento .message-error {
+  width: 100%;
+  word-break: break-all;
+}
+
+.container .card .content-card .export-recebimento .message-error span {
+  font-size: 15px;
+  color: #ec3b4d;
+}
+
+.container .card .content-card .export-recebimento .first-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .card .content-card .export-recebimento .first-area .input-type {
+  display: flex;
+  flex-direction: column;
+  max-width: 180px;
+  margin-top: 8px;
+}
+
+.container .card .content-card .export-recebimento .first-area .input-type  select {
+  border: 1px solid #ecebed;
+  border-radius: 4px;
+  height: 32px;
+  font-family: 'Poppins', sans-serif;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.container .card .content-card .export-recebimento .datas-recebimento {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.container .card .content-card .export-recebimento .datas-recebimento .input-area {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.container .card .content-card .export-recebimento .subtitle {
+  margin-left: 5px;
+}
+
+.container .card .content-card .export-recebimento .datas-recebimento .input-area input {
+  padding: 5px 15px;
+  font-size: 15px;
+  border: 1px solid #ecebed;
+  border-radius: 4px;
+}
+
+.container .card .content-card .export-recebimento .button-export {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  border: 1px solid #ecebed;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.container .card .content-card .export-recebimento .button-export span {
+  text-transform: uppercase;
+  margin-left: 25px;
+  color: #264a98;
+}
+
+
+.container .card .content-card .export-recebimento .button-export:hover {
+  background: #264a98;
+  transition: 0.2s background;
+}
+
+.container .card .content-card .export-recebimento .button-export:hover > svg, .container .card .content-card .export-recebimento .button-export:hover > span {
+  stroke: #fff;
+  color: #fff !important;
+  transition: 0.2s stroke, color;
+}
+
+.container .card .content-card .transition {
+  border-bottom: 1px solid #ecebed;
+  margin: 25px 0;
+}
+
+@media only screen and (max-width: 540px) and (min-width: 0px) {
+  .container .card .content-card .export-recebimento .datas-recebimento {
+    flex-direction: column;
+  }
+
+  .container .card .content-card .export-recebimento .datas-recebimento .input-area {
+    width: 100%;
+    margin-right: unset;
+  }
+}
+
+@media only screen and (max-width: 310px) and (min-width: 0px) {
+  .container .card .content-card .export-recebimento .first-area {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .container .card .content-card .clear-button {
+    margin-top: 15px;
+    margin-right: unset;
+  }
+}
