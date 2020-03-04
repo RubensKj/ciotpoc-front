@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       this.tokenService.setAuthorizationInLocalStorage(data.token);
       this.router.navigate(['']);
     }, error => {
-      switch(error.status) {
+      switch (error.status) {
         case 0: {
           this.errorMessage = 'Servidor não está disponivel no momento';
           break;

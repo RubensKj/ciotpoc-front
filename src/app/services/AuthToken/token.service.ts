@@ -25,7 +25,7 @@ export class TokenService {
     localStorage.removeItem(this.BASE_HEADER_AUTH);
   }
 
-  containsInLocalStorage(): boolean {
+  notContainsInLocalStorage(): boolean {
     return localStorage.getItem(this.BASE_HEADER_AUTH) === undefined || localStorage.getItem(this.BASE_HEADER_AUTH) === null || localStorage.getItem(this.BASE_HEADER_AUTH) === '';
   }
 }

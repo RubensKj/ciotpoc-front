@@ -24,11 +24,6 @@ export class ExportarMdfesComponent implements OnInit {
   constructor(private tokenService: TokenService, private exportMdfeService: ExportarMdfesService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.tokenService.containsInLocalStorage()) {
-      this.router.navigate(['/login']);
-    }
-
-    this.limparRecebimentoForm();
   }
 
   async exportRecebimento() {

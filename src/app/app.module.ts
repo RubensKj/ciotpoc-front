@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ExportarMdfesComponent } from './pages/exportar-mdfes/exportar-mdfes.component';
 import { httpInterceptorProvider } from './services/auth/auth-interceptor.service';
+import { AuthGuard } from './services/auth/auth.guard';
+import { SecureInnerPagesGuard } from './services/auth/secure-inner-pages.guard';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { httpInterceptorProvider } from './services/auth/auth-interceptor.servic
     HttpClientModule
   ],
   providers: [
-    httpInterceptorProvider
+    httpInterceptorProvider,
+    AuthGuard,
+    SecureInnerPagesGuard
   ],
   bootstrap: [AppComponent]
 })
