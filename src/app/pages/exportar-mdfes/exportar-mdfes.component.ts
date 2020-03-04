@@ -18,14 +18,8 @@ export class ExportarMdfesComponent implements OnInit {
   exportFormRecebimento = new FormGroup({
     dataInicial: new FormControl('', [Validators.required]),
     dataFinal: new FormControl('', [Validators.required]),
-    searchType: new FormControl('', [Validators.required]),
+    searchType: new FormControl('DATA_RECEBIMENTO', [Validators.required]),
   });
-
-  searchTypes = [
-    'Selecionar um tipo',
-    'Recebimento',
-    'Emissão'
-  ];
 
   constructor(private tokenService: TokenService, private exportMdfeService: ExportarMdfesService, private router: Router) { }
 
@@ -33,6 +27,8 @@ export class ExportarMdfesComponent implements OnInit {
     if (this.tokenService.containsInLocalStorage()) {
       this.router.navigate(['/login']);
     }
+
+    this.limparRecebimentoForm();
   }
 
   async exportRecebimento() {
@@ -48,7 +44,7 @@ export class ExportarMdfesComponent implements OnInit {
   }
 
   validate(type: string, initialDate: string, endDate: string): void {
-    if (type === undefined || type === '') {
+    if (type === undefined || type === null || type === '') {
       throw this.errorMessage = 'Favor selecionar um tipo de busca';
     }
 
@@ -73,18 +69,34 @@ export class ExportarMdfesComponent implements OnInit {
     this.exportFormRecebimento.controls.dataInicial.setValue('');
     this.exportFormRecebimento.controls.dataFinal.setValue('');
     this.errorMessage = '';
+    this.resetBuscaRadios();
+  }
+
+  resetBuscaRadios() {
+    let recebimento = document.getElementById('recebimento') as HTMLInputElement;
+    let emissao = document.getElementById('emissao') as HTMLInputElement;
+
+    if (!recebimento.checked) {
+      recebimento.checked = true;
+    }
+
+    if (emissao.checked) {
+      emissao.checked = false;
+    }
   }
 
   setValueFromSearchType(e) {
     this.errorMessage = '';
-    if (e.target.value === undefined || e.target.value === 'Selecionar um tipo') {
+    if (e.target.value === undefined) {
       this.errorMessage = 'Favor selecionar um tipo de busca';
       return;
     }
 
-    if (e.target.value === 'Recebimento') {
+    if (e.target.value === 'recebimento') {
       this.exportFormRecebimento.controls.searchType.setValue('DATA_RECEBIMENTO');
-    } else {
+    }
+
+    if (e.target.value === 'emissao') {
       this.exportFormRecebimento.controls.searchType.setValue('DATA_EMISSAO');
     }
   }

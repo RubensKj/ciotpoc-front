@@ -20,9 +20,16 @@
         <div class="first-area">
           <div class="input-type">
             <span class="subtitle">Tipo da busca</span>
-            <select (change)="setValueFromSearchType($event)">
-              <option *ngFor="let type of searchTypes">{{type}}</option>
-            </select>
+            <div class="checkboxes">
+              <div class="checkbox-area">
+                <input id="recebimento" (change)="setValueFromSearchType($event)" type="radio" name="tipo" value="recebimento" checked>
+                <label for="recebimento">Recebimento</label>
+              </div>
+              <div class="checkbox-area">
+                <input id="emissao" (change)="setValueFromSearchType($event)" type="radio" name="tipo" value="emissao">
+                <label for="emissao">Emissão</label>
+              </div>
+            </div>
           </div>
           <div (click)="limparRecebimentoForm()" class="clear-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"

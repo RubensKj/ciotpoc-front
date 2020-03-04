@@ -104,17 +104,59 @@
 .container .card .content-card .export-recebimento .first-area .input-type {
   display: flex;
   flex-direction: column;
-  max-width: 180px;
+  max-width: 230px;
   margin-top: 8px;
 }
 
-.container .card .content-card .export-recebimento .first-area .input-type  select {
-  border: 1px solid #ecebed;
-  border-radius: 4px;
-  height: 32px;
-  font-family: 'Poppins', sans-serif;
-  padding: 5px 15px;
+.container .card .content-card .export-recebimento .first-area .input-type .checkboxes {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.container .card .content-card .export-recebimento .first-area .input-type .checkboxes .checkbox-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.container .card .content-card .export-recebimento .first-area .input-type .checkboxes .checkbox-area label {
+  margin-left: 5px;
   cursor: pointer;
+  user-select: none;
+}
+
+.container .card .content-card .export-recebimento .first-area .input-type input {
+  border: 1px solid #ecebed;
+  cursor: pointer;
+  -webkit-appearance: none;
+	background-color: #fafafa;
+	padding: 8px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.container .card .content-card .export-recebimento .first-area .input-type input:checked {
+  background: #f1f1f1;
+  border: 1px solid #dbdbdb;
+  transition: 0.2s background, border;
+}
+
+.container .card .content-card .export-recebimento .first-area .input-type input:checked:after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 3px;
+  height: 8px;
+  border: solid #0082BF;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transition: 0.2s border-width;
 }
 
 .container .card .content-card .export-recebimento .datas-recebimento {
