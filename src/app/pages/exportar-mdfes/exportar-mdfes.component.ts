@@ -14,7 +14,6 @@ import { ExportarMdfesService } from './exportar-mdfes.service';
 })
 export class ExportarMdfesComponent implements OnInit {
 
-  defaultDateInInput = this.getTodayDate();
   errorMessage: string;
   exportFormRecebimento = new FormGroup({
     dataInicial: new FormControl(this.getTodayDate(), [Validators.required]),
