@@ -35,7 +35,6 @@ export class ExportarMdfesComponent implements OnInit {
     this.validate(searchType, initialDate, endDate);
 
     await this.exportMdfeService.exportExcelWithMDFes(searchType, initialDate, endDate);
-    this.limparRecebimentoForm();
   }
 
   validate(type: string, initialDate: string, endDate: string): void {
