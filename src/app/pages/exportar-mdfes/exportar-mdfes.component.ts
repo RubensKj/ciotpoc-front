@@ -14,10 +14,11 @@ import { ExportarMdfesService } from './exportar-mdfes.service';
 })
 export class ExportarMdfesComponent implements OnInit {
 
+  defaultDateInInput = this.getTodayDate();
   errorMessage: string;
   exportFormRecebimento = new FormGroup({
-    dataInicial: new FormControl('', [Validators.required]),
-    dataFinal: new FormControl('', [Validators.required]),
+    dataInicial: new FormControl(this.getTodayDate(), [Validators.required]),
+    dataFinal: new FormControl(this.getTodayDate(), [Validators.required]),
     searchType: new FormControl('DATA_RECEBIMENTO', [Validators.required]),
   });
 
@@ -99,5 +100,25 @@ export class ExportarMdfesComponent implements OnInit {
   logout() {
     this.tokenService.removeAuthorizationFromLocalStorage();
     this.router.navigate(['/login']);
+  }
+
+  getTodayDate(): string {
+    let date = new Date();
+
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = date.getDate();
+
+    let monthWithZero = this.setZeroIfNeeds((month + 1));
+    let dayWithZero = this.setZeroIfNeeds(day);
+
+    return year + "-" + monthWithZero + "-" + dayWithZero;
+  }
+
+  setZeroIfNeeds(number: number): string {
+    if (number < 10) {
+      return '0' + number;
+    }
+    return number.toString();
   }
 }
